@@ -47,7 +47,7 @@ def send_mqtt(topic, payload):
     '''send data to MQTT broker defined in settings'''
     try:
         publish.single(topic, payload=payload, qos=1,
-                       hostname=settings.MQTT_HOST, port=settings.MQTT_PORT, auth=auth)
+                       hostname=settings.MQTT_HOST, port=settings.MQTT_PORT, auth=auth, retain=True)
     except Exception as ex:
         print("MQTT Publish Failed: " + str(ex))
 
